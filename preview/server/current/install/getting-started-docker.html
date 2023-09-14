@@ -209,6 +209,9 @@ Couchbase Server can be installed using official Couchbase images from Docker Hu
 <li>
 <p><a href="#section_msh_fbl_42b">Deploy a Multi-Node Cluster with Containers</a></p>
 </li>
+<li>
+<p><a href="#section_deploy_multiple_clusters">Deploy Multiple Clusters with Containers</a></p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -263,8 +266,22 @@ Couchbase Server can be installed using official Couchbase images from Docker Hu
 <pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker run -d --name db -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 couchbase</code></pre>
 </div>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">Multiple instances with Docker</div>
 <div class="paragraph">
-<p>After running the above command, a single instance (<code>db</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> is downloaded and installed onto the host computer.
+<p>When running multiple instances on the same machine, make use of Docker&#8217;s <code>-p</code> option to map <code>external:internal</code> ports used by the container.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="paragraph">
+<p><code>-p 9091:8091</code> instructs the container to map the external machine port <code>9091</code> to the container application&#8217;s port <code>8091</code>.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>After running the above command, a single instance (<code>db</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> is downloaded and run on the host computer.
 If a traditional installation of Couchbase Server is running locally on the host computer, the port mappings specified using the <code>-p</code> option may fail.
 Ensure that you stop any local instance of Couchbase Server before running this command.</p>
 </div>
@@ -353,7 +370,8 @@ When all containers run on a single physical host, it&#8217;s important to remem
 For this reason, it&#8217;s not recommended to use this deployment model for use with applications that are sensitive to performance.</p>
 </div>
 <div class="paragraph">
-<p>The following procedure explains how to set up a three-node Couchbase cluster with all of the containers running on one physical host.</p>
+<p>The following procedure explains
+how to set up a three-node Couchbase cluster with all the containers running on one physical host.</p>
 </div>
 <div id="ol_v2q_h2l_42b" class="olist arabic">
 <ol class="arabic">
@@ -386,7 +404,7 @@ For this reason, it&#8217;s not recommended to use this deployment model for use
 </div>
 </div>
 <div class="paragraph">
-<p>After running the above commands, three instances (<code>db1</code>, <code>db2</code>, <code>db3</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> are downloaded and installed onto the host computer.
+<p>After running the above commands, three instances (<code>db1</code>, <code>db2</code>, <code>db3</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> are downloaded and run on the host computer.
 If a traditional installation of Couchbase Server is running locally on the host computer, the port mappings specified using the <code>-p</code> option may fail.
 Ensure that you stop any local instance of Couchbase Server before running these commands.</p>
 </div>
@@ -397,7 +415,7 @@ Ensure that you stop any local instance of Couchbase Server before running these
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-If you are using encrypted communication for the Couchbase Web Console, client, and server, and using XDCR, you need to open up additional ports.
+If you&#8217;re using encrypted communication for the Couchbase Web Console, client, and server, and using XDCR, you need to open up additional ports.
 For details, refer to <a href="install-ports.html" class="xref page">Couchbase Server Ports</a>.
 </td>
 </tr>
@@ -544,7 +562,7 @@ Note that all physical hosts must be able to discover one another on the same ne
 </div>
 </div>
 <div class="paragraph">
-<p>After running the above command, a single instance (<code>db</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> is downloaded and installed onto the host computer.
+<p>After running the above command, a single instance (<code>db</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> is downloaded and run on the host computer.
 The <code class="cmd">-v</code> option is recommended for better I/O performance and persists the data stored by Couchbase on the local host.
 The <code>--net=host</code> option provides better network performance and maps the host network stack to the container.</p>
 </div>
@@ -636,6 +654,140 @@ Click <b class="button">Add Server</b> to add the node to the cluster configurat
 <div class="paragraph">
 <p>Now that you have a multi-node Couchbase cluster running in containers across multiple physical hosts, you can move on to <a href="#section_pfz_p1r_42b">Next Steps</a>.</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="section_deploy_multiple_clusters"><a class="anchor" href="#section_deploy_multiple_clusters"></a>Deploy Multiple Clusters with Containers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this cluster deployment model, each cluster, running one or more nodes, is run in a separate container.
+All the containers run on a single physical host.
+When all containers run on a single physical host,
+it&#8217;s important to remember that all containers will compete for the same resources.
+For this reason,
+it&#8217;s not recommended to use this deployment model for use with applications that are sensitive to performance.</p>
+</div>
+<div class="paragraph">
+<p>The following procedure explains how to set up two clusters, each in a separate container,
+all running on one physical host.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download and install Docker on the host computer.</p>
+<div class="paragraph">
+<p>To set up Docker on the host computer,
+refer to Docker&#8217;s <a href="https://www.docker.com/get-started" target="_blank" rel="noopener">installation instructions</a>.</p>
+</div>
+</li>
+<li>
+<p>Install two instances of the official Couchbase Server container image.</p>
+<div class="paragraph">
+<p>Make sure to run each of the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker run -d --name db1 -p 8091-8096:8091-8096 -p 11210-11211:11210-11211 couchbase</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker run -d --name db2 -p 9091-9096:8091-8096 -p 21210-21211:11210-11211 couchbase</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After running the above commands,
+two instances (<code>db1</code> and <code>db2</code>) of the latest <a href="https://hub.docker.com/_/couchbase/" target="_blank" rel="noopener">official Couchbase Server container image</a> are downloaded
+and run on the host computer.
+If a traditional installation of Couchbase Server is running locally on the host computer,
+the port mappings specified using the <code>-p</code> option may fail.
+Ensure that you stop any local instance of Couchbase Server before running these commands.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If you&#8217;re using encrypted communication for the Couchbase Web Console, client, and server,
+and using XDCR, you need to open up additional ports.
+For details, refer to <a href="install-ports.html" class="xref page">Couchbase Server Ports</a>.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>You can check the Docker logs to verify that each container has started:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker logs db1</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker logs db2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the containers have started successfully, then each one will return the following output:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">Starting Couchbase Server -- Web UI available at http://&lt;ip&gt;:8091
+...</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Discover the local IP addresses of <code>db1</code> and <code>db2</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker inspect --format '{{ .NetworkSettings.IPAddress }}' db1</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-console hljs" data-lang="console">$ docker inspect --format '{{ .NetworkSettings.IPAddress }}' db2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note down the IP addresses as these will be needed for configuring the server nodes.</p>
+</div>
+<div class="paragraph">
+<p>Each instance is a Couchbase cluster, so you will need to access the UI for each cluster to add a server node.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Table 1. Accessing the server UI</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Instance</th>
+<th class="tableblock halign-left valign-top">Address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">db1</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://localhost:8091" class="bare">http://localhost:8091</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">db2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://localhost:9091" class="bare">http://localhost:9091</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>Refer to <a href="../manage/manage-nodes/create-cluster.html" class="xref page">Create a Cluster</a> for instructions on using the setup wizard.
+You may need to lower the RAM allocation for various services to fit within the bounds of the container&#8217;s resources.</p>
+</div>
+</li>
+</ol>
 </div>
 </div>
 </div>
