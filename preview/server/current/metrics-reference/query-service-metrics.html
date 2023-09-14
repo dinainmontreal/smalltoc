@@ -109,7 +109,7 @@
   <div class="sidebar-box">
     <div class="tools" role="navigation">
 <ul>
-<li class="tool edit"><a href="file:///C:/Docs/docs-server-2/modules/metrics-reference/pages/query-service-metrics.adoc" title="Edit Page" target="_blank" rel="noopener" class="remove-ext-icon">Edit on GitHub</a></li>
+<li class="tool edit"><a href="file:///C:/Docs/docs-server/modules/metrics-reference/pages/query-service-metrics.adoc" title="Edit Page" target="_blank" rel="noopener" class="remove-ext-icon">Edit on GitHub</a></li>
 </ul>
 </div>
     <div class="toc-menu"></div>
@@ -197,24 +197,55 @@ A list of the metrics provided by the Query Service.
 </div>
 <div class="openblock template">
 <div class="content">
+<div class="paragraph">
+<p>{{! Template to display Couchbase Server metrics }}</p>
+</div>
+<style>
+/* for doc.css */
+.doc .admonitionblock.tip.key td.content::before {
+  content: "Key: ";
+}
+</style>
+<div class="admonitionblock tip key">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <span class="edition">x.y.z</span> badge shows the Couchbase Server version the metric was added in.</p>
+</li>
+<li>
+<p>The <span class="status">type / unit</span> badge shows shows the Prometheus
+<a href="https://prometheus.io/docs/tutorials/understanding_metric_types/">type</a> and 
+<a href="https://prometheus.io/docs/practices/naming/#base-units">unit</a> (if present).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 60%;">
-<col style="width: 20%;">
-<col style="width: 20%;">
+<col style="width: 100%;">
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Metric</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Type</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Unit</p>
-<p class="tableblock">{{#each this}}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{{#each this}}
+{{#if (ne stability "internal")}}</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{{@key}}</code></p>
-<p class="tableblock">{{help}}</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{{type}}</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">{{unit}}
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{{@key}}</code>
+&#160;&#160;&#160;
+<span class="edition">{{or added "7.0.0"}}</span>
+<span class="status">{{or type "unknown"}}{{#if unit}} / {{unit}}{{/if}}</span></p>
+<p class="tableblock">{{help}}</p>
+<p class="tableblock">{{!notes}} {{! uncomment the <code>!</code> to add the notes field}}</p>
+<p class="tableblock">{{/if}}
 {{/each}}</p></td>
 </tr>
 </tbody>

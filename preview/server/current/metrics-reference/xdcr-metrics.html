@@ -109,7 +109,7 @@
   <div class="sidebar-box">
     <div class="tools" role="navigation">
 <ul>
-<li class="tool edit"><a href="file:///C:/Docs/docs-server-2/modules/metrics-reference/pages/xdcr-metrics.adoc" title="Edit Page" target="_blank" rel="noopener" class="remove-ext-icon">Edit on GitHub</a></li>
+<li class="tool edit"><a href="file:///C:/Docs/docs-server/modules/metrics-reference/pages/xdcr-metrics.adoc" title="Edit Page" target="_blank" rel="noopener" class="remove-ext-icon">Edit on GitHub</a></li>
 </ul>
 </div>
     <div class="toc-menu"></div>
@@ -180,11 +180,6 @@
 <div class="labels">
 <ul></ul>
 </div>
-<div class="labels">
-<ul>
-<li class="status"><span>UNDER CONSTRUCTION</span></li>
-</ul>
-</div>
 
 
 </div>
@@ -192,9 +187,7 @@
 <span class="last-commit-date" id="commitdate">    </span>
 <ul id="contributorList"></ul>
 <span  id="otherContributor"> + </span>
-</div><div id="preamble">
-<div class="sectionbody">
-<div class="quoteblock abstract">
+</div><div class="quoteblock abstract">
 <blockquote>
 A list of the metrics provided by XDCR.
 </blockquote>
@@ -202,651 +195,61 @@ A list of the metrics provided by XDCR.
 <div class="paragraph">
 <p>The following XDCR metrics can be queried by means of the REST APIs described in <a href="../rest-api/rest-statistics.html" class="xref page">Statistics</a>.</p>
 </div>
+<div class="openblock template">
+<div class="content">
 <div class="paragraph">
-<p>See also the metrics provided in <a href="#metrics-reference:all-services-metrics.adoc" class="xref unresolved">Metrics for All Services</a>; which are indeed for <em>all</em> Couchbase-Server services, and so support XDCR.</p>
+<p>{{! Template to display Couchbase Server metrics }}</p>
 </div>
-<div class="admonitionblock note">
+<style>
+/* for doc.css */
+.doc .admonitionblock.tip.key td.content::before {
+  content: "Key: ";
+}
+</style>
+<div class="admonitionblock tip key">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-note" title="Note"></i>
+<i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-This section is currently under construction.
+<div class="ulist">
+<ul>
+<li>
+<p>The <span class="edition">x.y.z</span> badge shows the Couchbase Server version the metric was added in.</p>
+</li>
+<li>
+<p>The <span class="status">type / unit</span> badge shows shows the Prometheus
+<a href="https://prometheus.io/docs/tutorials/understanding_metric_types/">type</a> and 
+<a href="https://prometheus.io/docs/practices/naming/#base-units">unit</a> (if present).</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_add_docs_written_total"><a class="anchor" href="#xdcr_add_docs_written_total"></a><code>xdcr_add_docs_written_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_changes_left_total"><a class="anchor" href="#xdcr_changes_left_total"></a><code>xdcr_changes_left_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of mutations to be replicated to other clusters. Per-replication. (measured from changes_left)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_data_merged_bytes"><a class="anchor" href="#xdcr_data_merged_bytes"></a><code>xdcr_data_merged_bytes</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_data_replicated_bytes"><a class="anchor" href="#xdcr_data_replicated_bytes"></a><code>xdcr_data_replicated_bytes</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: bytes/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Rate of replication in terms of bytes replicated per second. Per-replication. (measured from bandwidth_usage)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_datapool_failed_gets_total"><a class="anchor" href="#xdcr_datapool_failed_gets_total"></a><code>xdcr_datapool_failed_gets_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_dcp_datach_length_total"><a class="anchor" href="#xdcr_dcp_datach_length_total"></a><code>xdcr_dcp_datach_length_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_dcp_dispatch_time_seconds"><a class="anchor" href="#xdcr_dcp_dispatch_time_seconds"></a><code>xdcr_dcp_dispatch_time_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_deletion_docs_written_total"><a class="anchor" href="#xdcr_deletion_docs_written_total"></a><code>xdcr_deletion_docs_written_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_deletion_failed_cr_source_total"><a class="anchor" href="#xdcr_deletion_failed_cr_source_total"></a><code>xdcr_deletion_failed_cr_source_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_deletion_filtered_total"><a class="anchor" href="#xdcr_deletion_filtered_total"></a><code>xdcr_deletion_filtered_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_deletion_received_from_dcp_total"><a class="anchor" href="#xdcr_deletion_received_from_dcp_total"></a><code>xdcr_deletion_received_from_dcp_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_checked_total"><a class="anchor" href="#xdcr_docs_checked_total"></a><code>xdcr_docs_checked_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of doc checks per second. Per-replication.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_cloned_total"><a class="anchor" href="#xdcr_docs_cloned_total"></a><code>xdcr_docs_cloned_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_failed_cr_source_total"><a class="anchor" href="#xdcr_docs_failed_cr_source_total"></a><code>xdcr_docs_failed_cr_source_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of mutations that failed conflict resolution on the source side and hence have not been replicated to other clusters. Per-replication. (measured from per-replication stat docs_failed_cr_source)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_failed_cr_target_total"><a class="anchor" href="#xdcr_docs_failed_cr_target_total"></a><code>xdcr_docs_failed_cr_target_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of mutations that failed conflict resolution on the target side.  Per-replication. (measured from per-replication stat docs_failed_cr_target)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_filtered_total"><a class="anchor" href="#xdcr_docs_filtered_total"></a><code>xdcr_docs_filtered_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of mutations per second that have been filtered out and have not been replicated to other clusters. Per-replication. (measured from per-replication stat docs_filtered)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_merged_total"><a class="anchor" href="#xdcr_docs_merged_total"></a><code>xdcr_docs_merged_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_opt_repd_total"><a class="anchor" href="#xdcr_docs_opt_repd_total"></a><code>xdcr_docs_opt_repd_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of replicated mutations per second. Per-replication.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_processed_total"><a class="anchor" href="#xdcr_docs_processed_total"></a><code>xdcr_docs_processed_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_received_from_dcp_total"><a class="anchor" href="#xdcr_docs_received_from_dcp_total"></a><code>xdcr_docs_received_from_dcp_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Rate of mutations received from dcp in terms of number of mutations per second. Per-replication.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_rep_queue_total"><a class="anchor" href="#xdcr_docs_rep_queue_total"></a><code>xdcr_docs_rep_queue_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_unable_to_filter_total"><a class="anchor" href="#xdcr_docs_unable_to_filter_total"></a><code>xdcr_docs_unable_to_filter_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_docs_written_total"><a class="anchor" href="#xdcr_docs_written_total"></a><code>xdcr_docs_written_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: number/sec</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Number of replicated mutations per second. Per-replication. (measured from rate_replicated)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_docs_merged_total"><a class="anchor" href="#xdcr_expiry_docs_merged_total"></a><code>xdcr_expiry_docs_merged_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_docs_written_total"><a class="anchor" href="#xdcr_expiry_docs_written_total"></a><code>xdcr_expiry_docs_written_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_failed_cr_source_total"><a class="anchor" href="#xdcr_expiry_failed_cr_source_total"></a><code>xdcr_expiry_failed_cr_source_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_filtered_total"><a class="anchor" href="#xdcr_expiry_filtered_total"></a><code>xdcr_expiry_filtered_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_received_from_dcp_total"><a class="anchor" href="#xdcr_expiry_received_from_dcp_total"></a><code>xdcr_expiry_received_from_dcp_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_expiry_stripped_total"><a class="anchor" href="#xdcr_expiry_stripped_total"></a><code>xdcr_expiry_stripped_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_num_checkpoints_total"><a class="anchor" href="#xdcr_num_checkpoints_total"></a><code>xdcr_num_checkpoints_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_num_failedckpts_total"><a class="anchor" href="#xdcr_num_failedckpts_total"></a><code>xdcr_num_failedckpts_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_resp_wait_time_seconds"><a class="anchor" href="#xdcr_resp_wait_time_seconds"></a><code>xdcr_resp_wait_time_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_set_docs_written_total"><a class="anchor" href="#xdcr_set_docs_written_total"></a><code>xdcr_set_docs_written_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_set_failed_cr_source_total"><a class="anchor" href="#xdcr_set_failed_cr_source_total"></a><code>xdcr_set_failed_cr_source_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_set_filtered_total"><a class="anchor" href="#xdcr_set_filtered_total"></a><code>xdcr_set_filtered_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_set_received_from_dcp_total"><a class="anchor" href="#xdcr_set_received_from_dcp_total"></a><code>xdcr_set_received_from_dcp_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_size_rep_queue_bytes"><a class="anchor" href="#xdcr_size_rep_queue_bytes"></a><code>xdcr_size_rep_queue_bytes</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_target_docs_skipped_total"><a class="anchor" href="#xdcr_target_docs_skipped_total"></a><code>xdcr_target_docs_skipped_total</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_throttle_latency_seconds"><a class="anchor" href="#xdcr_throttle_latency_seconds"></a><code>xdcr_throttle_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_throughput_throttle_latency_seconds"><a class="anchor" href="#xdcr_throughput_throttle_latency_seconds"></a><code>xdcr_throughput_throttle_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_time_committing_seconds"><a class="anchor" href="#xdcr_time_committing_seconds"></a><code>xdcr_time_committing_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_wtavg_docs_latency_seconds"><a class="anchor" href="#xdcr_wtavg_docs_latency_seconds"></a><code>xdcr_wtavg_docs_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: millisecond</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Weighted average latency in ms of sending replicated mutations to remote cluster. Per-replication. (measured from wtavg_docs_latency)</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_wtavg_get_doc_latency_seconds"><a class="anchor" href="#xdcr_wtavg_get_doc_latency_seconds"></a><code>xdcr_wtavg_get_doc_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_wtavg_merge_latency_seconds"><a class="anchor" href="#xdcr_wtavg_merge_latency_seconds"></a><code>xdcr_wtavg_merge_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: NA</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="xdcr_wtavg_meta_latency_seconds"><a class="anchor" href="#xdcr_wtavg_meta_latency_seconds"></a><code>xdcr_wtavg_meta_latency_seconds</code></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Units</strong>: millisecond</p>
-</div>
-<div class="paragraph">
-<p><strong>Labels</strong>: NA</p>
-</div>
-<div class="paragraph">
-<p><strong>Description</strong>: Weighted average latency in ms of sending getMeta and waiting for a conflict solution result from remote cluster. Per-replication. (measured from wtavg_meta_latency)</p>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">{{#each this}}
+{{#if (ne stability "internal")}}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>{{@key}}</code>
+&#160;&#160;&#160;
+<span class="edition">{{or added "7.0.0"}}</span>
+<span class="status">{{or type "unknown"}}{{#if unit}} / {{unit}}{{/if}}</span></p>
+<p class="tableblock">{{help}}</p>
+<p class="tableblock">{{!notes}} {{! uncomment the <code>!</code> to add the notes field}}</p>
+<p class="tableblock">{{/if}}
+{{/each}}</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </article>

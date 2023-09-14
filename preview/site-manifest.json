@@ -1,6 +1,6 @@
 {
   "version": 3,
-  "generated": 1693429040380,
+  "generated": 1694546881085,
   "url": "https://docs.couchbase.com",
   "components": [
     {
@@ -4183,10 +4183,11 @@
               "title": "all"
             },
             {
+              "alias": true,
               "module": "cli",
               "path": "cbstats/cbstats-allocator.adoc",
-              "url": "/server/current/cli/cbstats/cbstats-allocator.html",
-              "title": "allocator"
+              "url": "/server/current/cli/mcstat.html",
+              "title": "mcstat"
             },
             {
               "module": "cli",
@@ -4421,6 +4422,12 @@
               "path": "couchbase-server.adoc",
               "url": "/server/current/cli/couchbase-server.html",
               "title": "couchbase-server"
+            },
+            {
+              "module": "cli",
+              "path": "mcstat.adoc",
+              "url": "/server/current/cli/mcstat.html",
+              "title": "mcstat"
             },
             {
               "module": "cli",
@@ -8951,9 +8958,15 @@
             },
             {
               "module": "rest-api",
+              "path": "rest-xdcr-connection-precheck.adoc",
+              "url": "/server/current/rest-api/rest-xdcr-connection-precheck.html",
+              "title": "Checking Connections"
+            },
+            {
+              "module": "rest-api",
               "path": "rest-xdcr-create-ref.adoc",
               "url": "/server/current/rest-api/rest-xdcr-create-ref.html",
-              "title": "Setting a Reference"
+              "title": "Creating a Reference"
             },
             {
               "module": "rest-api",
